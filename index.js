@@ -3,6 +3,7 @@ for (let i = 0; i < 7; i++) {
     {
         var button= this.innerHTML;
         sound(button);       
+        buttonAnimation(button);
     });
     
 }
@@ -10,6 +11,7 @@ for (let i = 0; i < 7; i++) {
 document.addEventListener("keydown", function (event) 
 {
     sound((event.key).toLowerCase());
+    buttonAnimation(event.key);
 });
 
 
@@ -44,4 +46,11 @@ function sound(key) {
         break;
     }
 
+}
+function buttonAnimation(clicked) {
+    var button = document.querySelector("."+clicked);
+    button.classList.add('pressed');
+    setTimeout(function(){
+        button.classList.remove('pressed');
+    }, 200);
 }
